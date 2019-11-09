@@ -1,0 +1,4 @@
+logging:
+  level:
+    edu.memory.pasudo123.app: info
+    org.springframework.data.redis: debug
