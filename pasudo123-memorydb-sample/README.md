@@ -24,20 +24,9 @@ public class Student implements Serializable {
 
     private int grade;
 
-    @Builder
-    public Student(String id, String name, Gender gender, int grade) {
-        this.id = id;
-        this.name = name;
-        this.gender = gender;
-        this.grade = grade;
-    }
-
-    public void updateName(final String name) {
-        this.name = name;
-    }
-
-    public void updateGrade(final int grade) {
-        this.grade = grade;
-    }
+    /** 생략 **/
 }
 ```
+
+# REF
+- https://redis.io/topics/quickstart
