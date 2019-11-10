@@ -39,12 +39,18 @@ public class StudentRepositoryTest {
     @BeforeClass
     public static void startRedisServer() throws IOException {
 
+        System.out.println("=====> @BeforeClass");
+
+        /** `maxmemory 128M` 을 제대로 써줘야 한다. 그렇지 않으면 에러 남. **/
         redisServer = new RedisServerBuilder().port(6379).setting("maxmemory 128M").build();
         redisServer.start();
     }
 
     @Before
     public void initStudent() {
+
+        System.out.println("=====> @Before");
+
         this.student = Student.builder()
                 .name("Park")
                 .id("A001")
@@ -116,6 +122,13 @@ public class StudentRepositoryTest {
 
     @AfterClass
     public static void stopRedisServer() throws IOException {
+
+        System.out.println("=====> @AfterClass");
+
+        if(redisServer == null) {
+            return;
+        }
+
         redisServer.stop();
     }
 }
