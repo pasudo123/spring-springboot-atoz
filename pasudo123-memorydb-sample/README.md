@@ -36,6 +36,11 @@ masterauth {pass}
 daemonize yes
 ```
 
+- redis-cli 실행 이후 명령어를 입력하면 ```NOAUTH Authentication required``` 문구가 나옴. 이는 신원확인이 안되었고 .conf 파일에서 requirepass 가 설정되어있기 때문에 나온다. 이를 입력하면 이후에 OK 가 나온다.
+- redis-cli 를 통해 publisher 와 subscriber 를 설정할 수 있다.
+  - 하나의 채널에서 publisher 는 메시지를 발행하고, subscriber 는 메시지를 구독하고 있다.
+  - subscriber 는 publisher 과 누구에 관계없이, 채널에 구독을 요청하고 채널에 들어온 모든 메시지를 읽는다.
+
 
 
 ## Redis Client
@@ -69,3 +74,4 @@ public class Student implements Serializable {
 
 # REF
 - https://redis.io/topics/quickstart
+- https://coding-start.tistory.com/130?category=791662
