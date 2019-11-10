@@ -1,12 +1,12 @@
 package edu.memory.pasudo123.app.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import edu.memory.pasudo123.app.queue.MessagePublisher;
 import edu.memory.pasudo123.app.queue.RedisMessagePublisher;
 import edu.memory.pasudo123.app.queue.RedisMessageSubscriber;
 import edu.memory.pasudo123.app.student.repository.StudentRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -15,6 +15,7 @@ import org.springframework.data.redis.listener.RedisMessageListenerContainer;
 import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.GenericToStringSerializer;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 
 /**
  * Created by pasudo123 on 2019-11-09
@@ -44,7 +45,7 @@ public class RedisConfiguration {
         final RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
 
         template.setConnectionFactory(jedisConnectionFactory());
-        template.setValueSerializer(new GenericToStringSerializer<>(Object.class));
+        template.setValueSerializer(new GenericToStringSerializer<Object>(Object.class));
 
         return template;
     }

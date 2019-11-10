@@ -29,10 +29,16 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
+    testCompile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
+
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        /** junit 4.x 에 대한 의존성 제외 생략. **/
+//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     testImplementation 'io.projectreactor:reactor-test'
+
 }
 
 configurations {

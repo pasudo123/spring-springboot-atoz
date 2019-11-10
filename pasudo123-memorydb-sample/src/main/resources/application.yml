@@ -1,3 +1,8 @@
+
+spring:
+  cache:
+    type: redis
+
 logging:
   level:
     edu.memory.pasudo123.app: info

@@ -2,7 +2,6 @@ package edu.memory.pasudo123.app.student.model;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.redis.core.RedisHash;
 
@@ -13,7 +12,6 @@ import java.io.Serializable;
  * Email: oraedoa@gmail.com
  **/
 @RedisHash("Student")
-@Setter
 @Getter
 @ToString
 public class Student implements Serializable {
@@ -35,6 +33,14 @@ public class Student implements Serializable {
         this.id = id;
         this.name = name;
         this.gender = gender;
+        this.grade = grade;
+    }
+
+    public void updateName(final String name) {
+        this.name = name;
+    }
+
+    public void updateGrade(final int grade) {
         this.grade = grade;
     }
 }
