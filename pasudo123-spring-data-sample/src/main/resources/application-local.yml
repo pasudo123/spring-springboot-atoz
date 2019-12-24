@@ -1,0 +1,38 @@
+spring:
+  profiles: local
+
+  datasource:
+    platform: h2
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+    initialization-mode: always           # 디폴트 값 (SQL script 사용)
+    sql-script-encoding: UTF-8            # SQL script 인코딩 'UTF-8'a
+    schema:
+      - classpath:db/h2/schema.sql
+    data:
+      - classpath:db/h2/data.sql
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  ## JPA 상 아래 세가지 설정
+  ## - h2 방언 설정
+  ## - 쿼리문 출력 여부
+  ## - DDL 설정
+  jpa:
+    database-platform: H2
+    show-sql: true
+  # 아래의 내용이 없어야 sql 문이 수행된다.
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+
+
+#########################################
+## 서비스가 올라갈 때, sql 을 실행시키고자 한다면,
+## 쿼리문을 /resources 안에 삽입한다.
+#########################################
