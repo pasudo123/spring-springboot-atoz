@@ -84,11 +84,11 @@ public class StudentRepositoryTest {
         final Student foundStudent = studentRepository.findById(savedStudent.getId()).get();
 
         /** 아래는 에러가 나옴 : Persistence Context 와 느낌이 유사하다. **/
-//        assertThat(student.getName(), not(foundStudent.getName()));
-//        assertThat(student.getGrade(), not(foundStudent.getGrade()));
+        assertThat(student.getName(), not(foundStudent.getName()));
+        assertThat(student.getGrade(), not(foundStudent.getGrade()));
 
-        assertThat(savedStudent.getName(), is(foundStudent.getName()));
-        assertThat(savedStudent.getGrade(), is(foundStudent.getGrade()));
+//        assertThat(savedStudent.getName(), is(foundStudent.getName()));
+//        assertThat(savedStudent.getGrade(), is(foundStudent.getGrade()));
     }
 
     @Test

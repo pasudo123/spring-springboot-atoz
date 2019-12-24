@@ -36,7 +36,7 @@ public class RedisConfiguration {
          **/
 
         /** 2.x **/
-        return new JedisConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379));
+        return new JedisConnectionFactory(new RedisStandaloneConfiguration("192.168.21.1", 16000));
     }
 
     @Bean

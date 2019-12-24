@@ -20,6 +20,7 @@ public class RedisMessagePublisher implements MessagePublisher{
 
     @Override
     public void publisher(final String message) {
+
         redisTemplate.convertAndSend(topic.getTopic(), message);
     }
 }
