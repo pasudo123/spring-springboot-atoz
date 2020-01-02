@@ -1,0 +1,17 @@
+spring:
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+app:
+  rabbitmq:
+    queue: qkrtjdehd123.queue
+
+## publisher port : 8080
+## rabbitmq port : 5672
+## lister port : 8081
+server:
+  port: 8081

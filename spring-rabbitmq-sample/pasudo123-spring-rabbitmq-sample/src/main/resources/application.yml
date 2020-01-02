@@ -1,0 +1,17 @@
+spring:
+
+  main:
+    # 동일한 빈 생성과정에서 발생하는 에러 해결을 위함.
+    allow-bean-definition-overriding: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+app:
+  rabbitmq:
+    exchange: qkrtjdehd123.exchange
+    queue: qkrtjdehd123.queue
+    routingkey: qkrtjdehd123.routingkey

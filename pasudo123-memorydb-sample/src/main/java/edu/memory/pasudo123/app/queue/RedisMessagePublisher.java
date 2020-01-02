@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RedisMessagePublisher implements MessagePublisher{
+public class RedisMessagePublisher implements MessagePublisher {
 
     private final RedisTemplate<String, Object> redisTemplate;
     private final ChannelTopic topic;

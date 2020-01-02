@@ -13,7 +13,7 @@ public class UserRepositoryImpl implements UserRepository {
     /**
      * - Application 은 EntityManagerFactory 1 개만 생성 가능.
      * - EntityManagerFactory 를 통해 EntityManager 생성 가능.
-     *
+     * <p>
      * - EntityManagerFactory : 스레드 세이프 O
      * - EntityManager : 스레드 세이프 X
      */
@@ -22,7 +22,6 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public Optional<User> save(User user) throws DataAccessException {
-
 
 
         return Optional.empty();

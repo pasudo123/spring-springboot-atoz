@@ -26,7 +26,7 @@ spring:
   jpa:
     database-platform: H2
     show-sql: true
-  # 아래의 내용이 없어야 sql 문이 수행된다.
+    # 아래의 내용이 없어야 sql 문이 수행된다.
     hibernate:
       ddl-auto: none
     generate-ddl: false

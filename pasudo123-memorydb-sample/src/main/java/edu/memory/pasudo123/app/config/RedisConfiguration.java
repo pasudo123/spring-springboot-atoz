@@ -29,8 +29,7 @@ public class RedisConfiguration {
     JedisConnectionFactory jedisConnectionFactory() {
 
         /** 1.x
-         @Deprecated
-         JedisConnectionFactory jedisConnectionFactory =  new JedisConnectionFactory();
+         @Deprecated JedisConnectionFactory jedisConnectionFactory =  new JedisConnectionFactory();
          jedisConnectionFactory.setHostName("localhost");
          jedisConnectionFactory.setPort(6379);
          **/

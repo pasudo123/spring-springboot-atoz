@@ -125,7 +125,7 @@ public class StudentRepositoryTest {
 
         System.out.println("=====> @AfterClass");
 
-        if(redisServer == null) {
+        if (redisServer == null) {
             return;
         }
 
