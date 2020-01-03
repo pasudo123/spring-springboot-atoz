@@ -15,6 +15,7 @@ public class AccountController {
 
     @GetMapping("/account/{role}/{username}/{password}")
     public Account createAccount(@ModelAttribute Account account) {
+
         /** modelAttribute 시 setter 가 필요. **/
         return accountService.createNew(account);
     }
