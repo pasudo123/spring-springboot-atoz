@@ -38,6 +38,3 @@
 - 스레드 수준의 데이터 저장소, 같은 스레드 내에서 공유
   - 같은 스레드라면 해당 데이터를 메소드 매개변수로 넘겨줄 필요가 없다.
 - SecurityContextHolder 기본 전략. SecurityContextHolder 를 `ThreadLocal` 에 저장한다.
-
-## 궁금증
-- 해당 request 가 동일한 같은 Thread 를 was 는 어떻게 판단할까?
