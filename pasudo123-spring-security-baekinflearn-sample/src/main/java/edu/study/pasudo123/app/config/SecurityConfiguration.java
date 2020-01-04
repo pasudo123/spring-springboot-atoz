@@ -40,11 +40,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(accountService);
     }
 
+    /**
+     *  인메모리 방식
+     */
     //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //
 //        /**
-//         * 인메모리 방식 사용.
 //         * {noop} : 암호화를 하지 않음을 명시.
 //         */
 //
