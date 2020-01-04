@@ -19,4 +19,6 @@ public class AccountController {
         /** modelAttribute 시 setter 가 필요. **/
         return accountService.createNew(account);
     }
+
+
 }
