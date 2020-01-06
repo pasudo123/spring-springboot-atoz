@@ -1,0 +1,8 @@
+spring:
+  kafka:
+    consumer:
+      group-id: foo
+      auto-offset-reset: earliest
+
+server:
+  port: 9092
