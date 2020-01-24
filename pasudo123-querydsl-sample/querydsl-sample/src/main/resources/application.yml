@@ -1,0 +1,27 @@
+
+spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/pasudo123_test?useSSL=false&allowPublicKeyRetrieval=true&useTimezone=true&serverTimezone=UTC
+    username: root
+    password: rootpass
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL57Dialect
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+logging:
+  level:
+    edu.pasudo123.querydsl: DEBUG
