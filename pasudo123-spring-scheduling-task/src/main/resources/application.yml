@@ -1,5 +1,10 @@
-
 spring:
+  profiles:
+    active: dev
+
+---
+spring:
+  profiles: dev
   datasource:
     url: jdbc:mysql://localhost:3306/study?useSSL=false&allowPublicKeyRetrieval=true&useTimezone=true&serverTimezone=Asia/Seoul
     username: root
@@ -9,9 +14,16 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.MySQL57Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: validate
     generate-ddl: false
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        format_sql: true
+#        generate_statistics: true
+        format_sql: false
+        jdbc.batch_size: 10000
+        order_inserts: true
+
+
+
+---

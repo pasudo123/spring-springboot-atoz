@@ -1,5 +1,6 @@
-package edu.study.pasudo123.app.member.model;
+package edu.study.pasudo123.app.user.model;
 
+import edu.study.pasudo123.app.member.model.Member;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,12 +13,12 @@ import java.time.LocalDateTime;
 
 @Getter
 @Entity
-@Table(name = "member", indexes = {
+@Table(name = "user", indexes = {
         @Index(name = "age_idx", columnList = "age")
 })
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
-public class Member {
+public class User {
 
     public enum Gender{
         MAN, WOMAN
@@ -36,16 +37,17 @@ public class Member {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false, columnDefinition = "ENUM('WOMAN', 'MAN')")
-    private Gender gender;
+    private User.Gender gender;
 
     @CreatedDate
     @Column(name = "reg_date", nullable = false, updatable = false, columnDefinition = "datetime")
     private LocalDateTime regDate;
 
     @Builder
-    public Member(String name, Integer age, Gender gender) {
+    public User(String name, Integer age, User.Gender gender) {
         this.name = name;
         this.age = age;
         this.gender = gender;
     }
+
 }
