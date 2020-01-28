@@ -11,7 +11,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     @Modifying
     @Transactional
-    @Query(nativeQuery = true, value = "delete from users limit 1")
+    @Query(nativeQuery = true, value = "delete from users ORDER BY users.id ASC limit 1")
     void deleteOneLimit1();
 
 }
