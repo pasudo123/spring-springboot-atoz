@@ -12,18 +12,15 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.MySQL57Dialect
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
       ddl-auto: validate
     generate-ddl: false
     show-sql: false
     properties:
       hibernate:
-#        generate_statistics: true
         format_sql: false
-        jdbc.batch_size: 10000
-        order_inserts: true
 
-
-
----
+logging:
+  level:
+    edu.study.pasudo123.app.*: info

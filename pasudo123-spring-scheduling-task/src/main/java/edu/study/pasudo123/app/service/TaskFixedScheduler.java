@@ -16,12 +16,12 @@ public class TaskFixedScheduler {
     // 5초 주기 수행.
     @Scheduled(fixedRate = 5000L)
     public void reportCurrentTimeByRate() {
-        log.info("fixedRate : {}", LocalDateTime.now().format(FORMAT));
+        log.debug("fixedRate : {}", LocalDateTime.now().format(FORMAT));
     }
 
     // 이전 기준으로 10초 뒤 수행.
     @Scheduled(fixedDelay = 10000L)
     public void reportCurrentTimeByDelay() {
-        log.info("fixedDelay : {}", LocalDateTime.now().format(FORMAT));
+        log.debug("fixedDelay : {}", LocalDateTime.now().format(FORMAT));
     }
 }

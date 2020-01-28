@@ -18,8 +18,8 @@ public class TaskCronScheduler {
     // 매 시간의 30분마다 수행.
     @Scheduled(cron = "0 30 * * * *")
     public void scheduled(){
-        log.info("======================");
-        log.info("크론탭 수행 : {}", LocalDateTime.now().format(FORMAT));
-        log.info("======================");
+        log.debug("======================");
+        log.debug("크론탭 수행 : {}", LocalDateTime.now().format(FORMAT));
+        log.debug("======================");
     }
 }
