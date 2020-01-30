@@ -22,4 +22,12 @@ public class TaskCronScheduler {
         log.debug("크론탭 수행 : {}", LocalDateTime.now().format(FORMAT));
         log.debug("======================");
     }
+
+    // 매 시간의 30초 수행.
+    @Scheduled(cron = "*/30 * * * * *")
+    public void scheduledBy30Minute(){
+        log.info("======================");
+        log.info("크론탭 수행 : {}", LocalDateTime.now().format(FORMAT));
+        log.info("======================");
+    }
 }
