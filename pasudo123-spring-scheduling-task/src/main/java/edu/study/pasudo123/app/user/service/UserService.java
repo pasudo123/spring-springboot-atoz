@@ -1,8 +1,10 @@
 package edu.study.pasudo123.app.user.service;
 
+import edu.study.pasudo123.app.exception.MemoryTableInsertException;
 import edu.study.pasudo123.app.user.model.User;
 import edu.study.pasudo123.app.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,18 +15,13 @@ public class UserService {
     private final UserRepository userRepository;
 
     @Transactional
-    public String saveIfPossibleElseDeleteAndSave(final String name) throws Exception {
+    public String saveIfPossibleElseDeleteAndSave(final String name) throws DataAccessException {
 
         final User user = User.builder()
                 .age(0)
                 .name(name)
                 .gender(User.Gender.MAN)
                 .build();
-
-        /**
-         * save() 만 있는 경우 :
-         * save() 를 try/catch 로 감싼경우 :
-         */
 
         userRepository.save(user);
         return "SAVE";

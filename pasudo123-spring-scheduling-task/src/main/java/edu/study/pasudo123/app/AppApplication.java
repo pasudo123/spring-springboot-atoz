@@ -1,33 +1,20 @@
 package edu.study.pasudo123.app;
 
-import edu.study.pasudo123.app.member.model.Member;
-import edu.study.pasudo123.app.member.repository.MemberRepository;
-import edu.study.pasudo123.app.user.model.User;
-import edu.study.pasudo123.app.user.repository.UserRepository;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 @SpringBootApplication
-@Slf4j
 public class AppApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(AppApplication.class, args);
     }
 
-    @Bean
-    @Transactional
-    public CommandLineRunner runner(MemberRepository memberRepository, UserRepository userRepository) {
-
-        return args -> {
+//    @Bean
+//    @Transactional
+//    public CommandLineRunner runner(MemberRepository memberRepository, UserRepository userRepository) {
+//
+//        return args -> {
 
 //            final int maxSize = 50000;
 //
@@ -52,6 +39,6 @@ public class AppApplication {
 //
 //                userRepository.save(user);
 //            }
-        };
-    }
+//        };
+//    }
 }
