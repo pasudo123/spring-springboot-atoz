@@ -1,0 +1,6 @@
+
+spring:
+  redis:
+    host: localhost
+    port: 6370
+    url: 'redis://password@localhost:6370/'

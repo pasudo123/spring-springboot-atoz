@@ -9,13 +9,9 @@ import org.springframework.data.redis.core.index.Indexed;
 import java.time.LocalDateTime;
 
 @Getter
-@RedisHash("student")
+@RedisHash("teacher")
 @ToString
-public final class Student {
-
-    public enum Gender {
-        MALE, FEMALE
-    }
+public final class Teacher {
 
     @Id
     private String id;
@@ -23,21 +19,15 @@ public final class Student {
     @Indexed
     private String name;
 
-    private Gender gender;
-
-    private int grade;
-
     @Indexed
-    private final LocalDateTime registerDate;
+    private LocalDateTime registerDate;
 
-    private Student(String name, Gender gender, int grade) {
+    private Teacher(String name) {
         this.name = name;
-        this.gender = gender;
-        this.grade = grade;
         this.registerDate = LocalDateTime.now();
     }
 
-    public static Student create(final String name, Gender gender, int grade) {
-        return new Student(name, gender, grade);
+    public static Teacher create(final String name){
+        return new Teacher(name);
     }
 }

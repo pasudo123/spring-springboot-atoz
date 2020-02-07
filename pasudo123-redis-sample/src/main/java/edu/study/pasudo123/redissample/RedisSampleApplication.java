@@ -1,14 +1,18 @@
 package edu.study.pasudo123.redissample;
 
+import edu.study.pasudo123.redissample.model.ClassRoom;
 import edu.study.pasudo123.redissample.model.Student;
+import edu.study.pasudo123.redissample.model.Teacher;
+import edu.study.pasudo123.redissample.repository.ClassRoomRepository;
 import edu.study.pasudo123.redissample.repository.StudentRepository;
-import io.lettuce.core.RedisClient;
-import io.lettuce.core.api.StatefulRedisConnection;
-import io.lettuce.core.api.sync.RedisCommands;
+import edu.study.pasudo123.redissample.repository.TeacherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class RedisSampleApplication {
@@ -17,64 +21,55 @@ public class RedisSampleApplication {
         SpringApplication.run(RedisSampleApplication.class, args);
     }
 
-    /**
-     * https://github.com/lettuce-io/lettuce-core/blob/master/src/test/java/io/lettuce/examples/ReadWriteExample.java
-     */
+    // [secondary Index] : @Indexed
+    // - redis 의 인덱스로 작용하고 redis cli 에서 keys 조회시 노출
+
+    // [idx] : @Id
+    // - redis 의 키로 작용하고 redis cli 에서 keys 조회시 노출
+
+
+
     @Bean
-    public CommandLineRunner run(final RedisClient redisClient) {
+    public CommandLineRunner run(final TeacherRepository teacherRepository,
+                                 final StudentRepository studentRepository,
+                                 final ClassRoomRepository classRoomRepository) {
 
         return args -> {
 
-            final StatefulRedisConnection<String, String> connection = redisClient.connect();
+            // student
+            studentRepository.deleteAll();
 
-            System.out.println("Connected to Redis");
+            for(int i = 1; i <= 1; i++) {
+                Student savedStudent = studentRepository.save(Student.create("HongGilDong", Student.Gender.MALE, 1));
+                System.out.println(savedStudent);
+            }
 
-            final RedisCommands<String, String> sync = connection.sync();
+            // teacher
+            teacherRepository.deleteAll();
 
-            sync.set("foo", "bar");
-            String value = sync.get("foo");
-            System.out.println(value);
+            for(int i = 1; i <= 1; i++) {
+                Teacher savedTeacher = teacherRepository.save(Teacher.create("ISunSin"));
+                System.out.println(savedTeacher);
+            }
 
-            connection.close();
-            redisClient.shutdown();
+            // classroom
+            classRoomRepository.deleteAll();
+
+            final List<Student> studentList = new ArrayList<>();
+            for(int i = 1; i <= 2; i++) {
+                final Student savedStudent = studentRepository.save(Student.create("park" + i, Student.Gender.MALE, 5));
+                studentList.add(savedStudent);
+            }
+
+            final Teacher foundTeacher = teacherRepository.findByName("ISunSin");
+
+            final ClassRoom savedClassRoom = classRoomRepository.save(ClassRoom.create(foundTeacher, studentList));
+
+            System.out.println(savedClassRoom);
         };
     }
 
-//    @Bean
-//    public CommandLineRunner run(final StudentRepository studentRepository) {
-//
-//        return args -> {
-//
-//            final Student student = Student.builder()
-//                    .id("s1")
-//                    .gender(Student.Gender.MALE)
-//                    .grade(1)
-//                    .name("홍길동")
-//                    .build();
-//
-//            // save
-//            final Student savedStudent = studentRepository.save(student);
-//
-//            System.out.println("레포지토리에 [저장된] 학생 정보");
-//            System.out.println(savedStudent);
-//            System.out.println();
-//
-//            // find
-//            final Student foundStudent = studentRepository.findById(savedStudent.getId()).get();
-//
-//            System.out.println("레포지토리에 [검색한] 학생 정보");
-//            System.out.println(savedStudent);
-//            System.out.println();
-//
-//
-//            // delete
-//            studentRepository.deleteById(foundStudent.getId());
-//
-//            final int count = (int) studentRepository.count();
-//
-//            System.out.println("레포지토리에 [검색한] 총 학생의 수");
-//            System.out.println(count);
-//            System.out.println();
-//        };
-//    }
+    /**
+     * https://github.com/lettuce-io/lettuce-core/blob/master/src/test/java/io/lettuce/examples/ReadWriteExample.java
+     */
 }

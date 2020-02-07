@@ -20,9 +20,14 @@ repositories {
 
 dependencies {
 
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-configuration-processor
     compile "org.springframework.boot:spring-boot-configuration-processor"
 
+    // 임베디드 레디스를 사용하기 위함.
+    // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
+    testCompile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.2'
 
     // https://mvnrepository.com/artifact/io.lettuce/lettuce-core
     compile group: 'io.lettuce', name: 'lettuce-core', version: '5.1.8.RELEASE'
