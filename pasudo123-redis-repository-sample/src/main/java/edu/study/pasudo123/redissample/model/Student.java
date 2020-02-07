@@ -28,7 +28,7 @@ public final class Student {
     private int grade;
 
     @Indexed
-    private final LocalDateTime registerDate;
+    private LocalDateTime registerDate;
 
     private Student(String name, Gender gender, int grade) {
         this.name = name;

@@ -23,13 +23,10 @@ class StudentRepositoryTest {
     @DisplayName("레디스 레파지토리 CRUD 테스트")
     void studentRepositoryTest() {
 
+        studentRepository.deleteAll();
+
         // given
-        final Student student = Student.builder()
-                .id("s1")
-                .gender(Student.Gender.MALE)
-                .grade(1)
-                .name("홍길동")
-                .build();
+        final Student student = Student.create("honggildong", Student.Gender.MALE, 5);
 
         // save
         final Student savedStudent = studentRepository.save(student);
