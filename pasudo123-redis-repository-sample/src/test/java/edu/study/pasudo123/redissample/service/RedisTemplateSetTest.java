@@ -12,6 +12,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -31,11 +32,17 @@ public class RedisTemplateSetTest {
     @ParameterizedTest
     @MethodSource("provideRedisDummyList")
     @SuppressWarnings("unchecked")
-    public void redisTemplateSetTest(List<RedisDummy> redisDummies){
+    public void redisTemplate_Set_AddTest(List<RedisDummy> redisDummies){
 
         // save
         redisTemplate.opsForSet().add(DUMMY_KEY, redisDummies);
 
+        // get
+        Set<RedisDummy> dummySet = redisTemplate.opsForSet().members(DUMMY_KEY);
+
+        for(RedisDummy dummy : dummySet) {
+            System.out.println(dummy);
+        }
     }
 
     static Stream<List<RedisDummy>> provideRedisDummyList() {

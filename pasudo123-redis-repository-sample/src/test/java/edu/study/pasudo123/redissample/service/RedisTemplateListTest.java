@@ -28,7 +28,7 @@ class RedisTemplateListTest {
     @ParameterizedTest
     @MethodSource("provideRedisDummyList")
     @SuppressWarnings("unchecked")
-    void redisTemplatePushTest(List<RedisDummy> redisDummies) {
+    void redisTemplate_List_PushTest(List<RedisDummy> redisDummies) {
 
         // save
         redisTemplate.opsForList().leftPushAll(DUMMY_KEY, redisDummies);
@@ -37,7 +37,7 @@ class RedisTemplateListTest {
     @ParameterizedTest
     @MethodSource("provideRedisDummyList")
     @SuppressWarnings("unchecked")
-    void redisTemplateLeftPopAndRightPopTest(List<RedisDummy> redisDummies) throws JsonProcessingException {
+    void redisTemplate_List_LeftPopAndRightPopTest(List<RedisDummy> redisDummies) throws JsonProcessingException {
 
         // save
         redisTemplate.opsForList().leftPushAll(DUMMY_KEY, redisDummies);
@@ -60,7 +60,7 @@ class RedisTemplateListTest {
     @ParameterizedTest
     @MethodSource("provideRedisDummyList")
     @SuppressWarnings("unchecked")
-    void redisTemplateClearTest(List<RedisDummy> redisDummies) {
+    void redisTemplate_List_ClearTest(List<RedisDummy> redisDummies) {
 
         // save
         redisTemplate.opsForList().leftPushAll(DUMMY_KEY, redisDummies);
