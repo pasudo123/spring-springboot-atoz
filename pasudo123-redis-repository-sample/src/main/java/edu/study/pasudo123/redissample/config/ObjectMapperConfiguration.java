@@ -19,7 +19,6 @@ public class ObjectMapperConfiguration {
 
         // LocalDateTime 역직렬화 해결.
         ObjectMapper mapper = new ObjectMapper();
-        mapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
         mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         mapper.registerModule(new JavaTimeModule());
 
