@@ -8,6 +8,10 @@ group = 'edu.pasudo123'
 version = '1.0.0'
 sourceCompatibility = '1.8'
 
+bootJar {
+    mainClassName = 'edu.pasudo123.springdocker.SpringDockerApplication'
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
