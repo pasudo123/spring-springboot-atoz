@@ -1,11 +1,16 @@
 # 도커를 실행하기 위한 jre 만 필요
 # jdk 는 자바를 개발하기 위함 개발 키트이기 때문에 상관 무
 
-FROM openjdk:8-jre
-EXPOSE 8080
-ADD build/libs/spring-docker-1.0.0.jar spring-docker-1.0.0.jar
+# FROM : 이미지를 만들기 위한 베이스가 되는 이미지 설정
+# gradlew
+FROM openjdk:8-jre-alpine
+
+WORKDIR /volume1/docker/deploy/www/masterpiece
+
 ENTRYPOINT ["java", "-jar", "/spring-docker-1.0.0.jar"]
 
+
+EXPOSE 8080
 
 ### [ADD] Command
 # Syntax : ADD {source} {destination}
