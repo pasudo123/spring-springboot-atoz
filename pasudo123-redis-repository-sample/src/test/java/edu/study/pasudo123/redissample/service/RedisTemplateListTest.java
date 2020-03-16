@@ -117,6 +117,7 @@ class RedisTemplateListTest {
     @SuppressWarnings("unchecked")
     void redisTemplate_Push_One_Test(List<RedisDummy> paramsRedisDummies) {
 
+
         for(RedisDummy dummy : paramsRedisDummies) {
             redisTemplate.opsForList().leftPush(DUMMY_KEY, dummy);
         }

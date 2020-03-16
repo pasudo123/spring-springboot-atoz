@@ -19,7 +19,7 @@ public class RedisDummyDao {
     private RedisTemplate<String, Object> redisTemplate;
 
     public void push(final List<RedisDummy> redisDummyList){
-        redisTemplate.opsForList().leftPush(KEY, redRageisDummyList);
+        redisTemplate.opsForList().leftPush(KEY, redisDummyList);
     }
 
     public List<RedisDummy> popAllDataByKey(final String key){
