@@ -3,5 +3,9 @@ spring:
     host: localhost
     port: 6379
     password: ''
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save # default, 호출 시 레디스 기록
 server:
-  port:
+  port: 8080
