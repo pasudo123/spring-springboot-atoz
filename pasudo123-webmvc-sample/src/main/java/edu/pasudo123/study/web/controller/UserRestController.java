@@ -14,12 +14,12 @@ public class UserRestController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "user/{id}", method = RequestMethod.GET)
+    @GetMapping(value = "user/{id}")
     public User findById(@PathVariable("id") int id){
         return userService.findById(id);
     }
 
-    @RequestMapping(value = "/user", method = RequestMethod.POST)
+    @PostMapping(value = "/user")
     public User createUser(@RequestParam("name") String name,
                            @RequestParam("age") Integer age,
                            @RequestParam("gender") String gender){
