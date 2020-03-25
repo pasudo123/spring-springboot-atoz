@@ -1,15 +1,15 @@
 package edu.pasudo123.study.sessionconfig.config;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.stereotype.Component;
 
-import javax.servlet.annotation.WebListener;
 import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 import java.util.concurrent.atomic.AtomicInteger;
 
-@WebListener
+@Component
 @Slf4j
-public class CustomSessionListener implements HttpSessionListener {
+public class CustomSessionListener extends HttpSessionEventPublisher {
 
     private final AtomicInteger counter = new AtomicInteger();
 

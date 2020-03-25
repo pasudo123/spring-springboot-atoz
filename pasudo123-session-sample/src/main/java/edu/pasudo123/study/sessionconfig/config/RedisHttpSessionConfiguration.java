@@ -12,15 +12,12 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 import org.springframework.session.web.context.AbstractHttpSessionApplicationInitializer;
 
-
-/**
- * reference : https://stackoverflow.com/questions/32501541/what-is-the-default-session-timeout-and-how-to-configure-it-when-using-the-sprin
- */
 @Configuration
-@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 10)
+@EnableRedisHttpSession(maxInactiveIntervalInSeconds = 30)
 public class RedisHttpSessionConfiguration extends AbstractHttpSessionApplicationInitializer {
 
     public RedisHttpSessionConfiguration(){
