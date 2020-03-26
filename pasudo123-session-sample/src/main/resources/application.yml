@@ -9,3 +9,7 @@ spring:
       flush-mode: on_save # default, 호출 시 레디스 기록
 server:
   port: 8080
+
+logging:
+  level:
+    edu.pasudo123.study.sessionconfig: INFO
