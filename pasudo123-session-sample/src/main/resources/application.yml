@@ -6,7 +6,8 @@ spring:
   session:
     store-type: redis
     redis:
-      flush-mode: on_save # default, 호출 시 레디스 기록
+      flush-mode: on_save
+
 server:
   port: 8080
 
