@@ -11,17 +11,17 @@ public class Dummy {
     private String name;
     private Integer hour;
     private Integer minute;
-    private Integer randomNumber;
+    private Integer second;
 
     @Builder
     public Dummy(String name,
                  Integer hour,
                  Integer minute,
-                 Integer randomNumber) {
+                 Integer second) {
 
         this.name = name;
         this.hour = hour;
         this.minute = minute;
-        this.randomNumber = randomNumber;
+        this.second = second;
     }
 }
