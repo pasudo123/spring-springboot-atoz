@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'edu.pasudo123.gracefully'
-version = '1.0.0'
+version = '1.0.0' + '-' + new Date().format('yyyyMMdd-HHmmss')
 sourceCompatibility = '1.8'
 
 configurations {
