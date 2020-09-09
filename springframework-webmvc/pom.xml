@@ -22,7 +22,7 @@
         <hibernate.version>5.4.1.Final</hibernate.version>
 
         <!-- Hibernate-Validator -->
-        <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
+        <hibernate-validator.version>5.4.2.Final</hibernate-validator.version>
 
         <!-- Jackson -->
         <com.fasterxml.jackson.version>2.9.10.3</com.fasterxml.jackson.version>
