@@ -19,7 +19,7 @@
         <spring-framework.version>5.0.16.RELEASE</spring-framework.version>
 
         <!-- Hibernate / JPA -->
-        <hibernate.version>5.4.1.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
 
         <!-- Hibernate-Validator -->
         <hibernate-validator.version>5.4.1.Final</hibernate-validator.version>
