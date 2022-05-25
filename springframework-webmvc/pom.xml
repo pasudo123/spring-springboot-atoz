@@ -16,7 +16,7 @@
     <!-- 속성값 설정 -->
     <properties>
         <!-- Spring -->
-        <spring-framework.version>5.0.16.RELEASE</spring-framework.version>
+        <spring-framework.version>5.2.22.RELEASE</spring-framework.version>
 
         <!-- Hibernate / JPA -->
         <hibernate.version>5.4.1.Final</hibernate.version>
